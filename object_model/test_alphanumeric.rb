@@ -1,11 +1,8 @@
 require 'test/unit'
+require './alphanumeric'
 
-class ToAlphanumericTest < Test::Unit::TestCase
-  def test_strips_non_alphanumeric_charactars
-    assert_equal '3 the Magic Member', to_alphanumeric('#3, the *Magic, Number*?')
+class StringExtensionsTest < Test::Unit::TestCase
+  def test_strip_non_alphanumeric_characters
+    assert_equal '3 the Magic Number', '#3, the *Magic, Number*?'.to_alphanumeric
   end
-end
-
-def to_alphanumeric(s)
-  s.gsub(/[^¥w¥s]/, '')
 end
