@@ -1,8 +1,9 @@
-class Paragraph
-  def initialize(text)
-    @text = text
-  end
+# どんな文字列も段落になる
+paragraph = "any string can be a paragraph"
 
-  def title?; @text.upcate == @text; end
-  def reverse; @text.reverse; end
+def paragraph.title?
+  self.upcase == self
 end
+
+# ここでエラーになる。このindexは一体なにがレシーバーになっているのか
+index(paragraph)
