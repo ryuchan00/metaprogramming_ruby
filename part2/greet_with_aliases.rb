@@ -8,7 +8,7 @@ class MyClass
   include Greetings
 end
 
-p MyClass.new.greet # => "hello
+p MyClass.new.greet # => hello
 
 class MyClass2
   include Greetings
@@ -21,4 +21,5 @@ class MyClass2
   alias_method :greet, :greet_with_enthusiasm
 end
 
-p MyClass2.new.greet
+p MyClass2.new.greet # => Hey, hello!
+p MyClass2.new.greet_without_enthusiasm # => hello
