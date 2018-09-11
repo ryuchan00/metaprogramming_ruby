@@ -12,6 +12,6 @@ end
 
 define_methods
 
-p counter
+puts counter
 inc(4)
-p counter
+puts counter
