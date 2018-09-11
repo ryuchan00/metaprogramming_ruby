@@ -1,5 +1,7 @@
 require 'test/unit'
-require_relative 'with'
+# require_relative 'with'
+require_relative 'with2'
+require 'pry'
 
 class TestWith < Test::Unit::TestCase
   class Resource
