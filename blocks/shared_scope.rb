@@ -12,6 +12,7 @@ end
 
 define_methods
 
+
 puts counter
 inc(4)
 puts counter
