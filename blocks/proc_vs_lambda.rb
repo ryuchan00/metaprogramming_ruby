@@ -1,4 +1,5 @@
 def double(callable_object)
+
   callable_object.call * 2
 end
 
@@ -12,3 +13,12 @@ def another_double
 end
 
 p another_double
+
+def double2(callable_object)
+  callable_object.call * 2
+end
+
+p = Proc.new { return 10 }
+p double2(p)
+
+
