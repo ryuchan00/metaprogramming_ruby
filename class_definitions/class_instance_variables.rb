@@ -34,3 +34,15 @@ obj.write
 p obj.read # => read
 # これは MyClass というオブジェクトのインスタンス変数だ。クラスインスタンス変数とも呼ばれる。
 p MyClass2.read # => self.read
+
+puts 'クラス変数'
+
+class Object
+  @@v = 1
+end
+
+class C
+  @@v = 2
+end
+
+p @@v
