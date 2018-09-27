@@ -26,3 +26,9 @@ p obj.singleton_class.superclass  # D
 p obj.class                       # D
 p obj.singleton_methods           # [:a_singleton_method]
 p C.singleton_methods             # [:a_class_method]
+
+C.singleton_class                 # => #<Class:C>
+D.singleton_class                 # => #<Class:D>
+D.singleton_class.superclass      # => #<Class:C>
+C.singleton_class.superclass      # => #<Class:Object>
+
