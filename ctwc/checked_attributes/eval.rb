@@ -29,32 +29,16 @@ class TestCheckedAttribute < Test::Unit::TestCase
 end
 
 def add_checked_attribute(klass, attribute)
-  # eval <<-EOS
-  # class #{klass}
-  #   def #{attribute}=(value)
-  #     raise 'Invalid attribute' unless value
-  #     @#{attribute} = value
-  #   end
-  #
-  #   def #{attribute}()
-  #     @#{attribute}
-  #   end
-  # end
-  # EOS
-
   klass.class_eval {
     # 呼ばれたら、attributeのgetter,setterを定義してあげる
     define_method attribute do
-      eval("@#{attribute}")
+      instance_variable_get("@#{attribute}")
     end
 
     define_method "#{attribute}=" do |value|
       # setterにて、呼ばれた場合は、nilまたはfalseの場合はエラーにする
       raise 'Invalid attribute' unless value
-      eval_string = <<-EOS
-      @#{attribute} = value
-      EOS
-      eval(eval_string)
+      instance_variable_set("@#{attribute}", value)
     end
   }
 end
