@@ -6,7 +6,7 @@ end
 
 class TestCheckedAttribute < Test::Unit::TestCase
   def setup
-    add_checked_attribute(Person, :age)
+    add_checked_attribute(Person, :age) { |v| v >= 18 }
     @bob = Person.new
   end
 
@@ -15,15 +15,9 @@ class TestCheckedAttribute < Test::Unit::TestCase
     assert_equal 20, @bob.age
   end
 
-  def test_refuses_nil_values
+  def test_refuses_invalid_values
     assert_raises RuntimeError, 'Invalid attribute' do
-      @bob.age = nil
-    end
-  end
-
-  def test_refuses_false_values
-    assert_raises RuntimeError, 'Invalid attribute' do
-      @bob.age = false
+      @bob.age = 17
     end
   end
 end
