@@ -5,7 +5,7 @@ module CheckedAttributes
     klass.extend ClassMethods
   end
 
-  module ClassMethods
+  # module ClassMethods
     def attr_checked(attribute, &condition)
       raise RuntimeError unless block_given?
       define_method "#{attribute}=" do |value|
@@ -17,11 +17,12 @@ module CheckedAttributes
         instance_variable_get("@#{attribute}")
       end
     end
-  end
+  # end
 end
 
 class Person
-  include CheckedAttributes
+  # include CheckedAttributes
+  extend CheckedAttributes
 
   attr_checked :age do |v|
     v >= 18
