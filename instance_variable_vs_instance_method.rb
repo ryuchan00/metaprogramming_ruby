@@ -1,9 +1,10 @@
 class InstanceVariableVsInstanceMethod
-  attr_accessor :id
-
   def initialize
     id = 'ini'
   end
+
+
+  attr_accessor :id
 
   def id
     'method'
